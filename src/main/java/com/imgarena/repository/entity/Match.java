@@ -1,4 +1,3 @@
 package com.imgarena.repository.entity;
 
-public class Match {
-}
+public record Match(int id, String title) {}
