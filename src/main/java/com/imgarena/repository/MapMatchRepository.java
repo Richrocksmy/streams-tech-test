@@ -14,13 +14,13 @@ public class MapMatchRepository implements MatchRepository {
     private final Map<Integer, Match> repository = new HashMap<>();
 
     public MapMatchRepository() {
-//        repository.put(1, new Match(1, "Mary vs Isadora"));
-//        repository.put(2, new Match(2, "Pollyanna vs Isadora"));
+        repository.put(1, new Match(1, "Mary vs Isadora"));
+        repository.put(2, new Match(2, "Pollyanna vs Isadora"));
     }
 
     @Override
     public void save(Match match) {
-        repository.put(match.id(), match);
+        repository.put(match.getId(), match);
     }
 
     @Override
