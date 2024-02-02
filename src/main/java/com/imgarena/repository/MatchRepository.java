@@ -1,15 +1,8 @@
 package com.imgarena.repository;
 
 import com.imgarena.repository.entity.Match;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-import java.util.List;
-import java.util.Optional;
-
-public interface MatchRepository {
-
-    void save(Match match);
-
-    List<Match> findAll();
-
-    Optional<Match> findById(int id);
-}
+@Repository
+public interface MatchRepository extends CrudRepository<Match, Integer> {}

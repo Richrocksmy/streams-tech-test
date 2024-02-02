@@ -1,5 +1,6 @@
 package com.imgarena.controller;
 
+import com.imgarena.controller.dto.MatchDto;
 import com.imgarena.repository.entity.Match;
 import com.imgarena.service.MatchService;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,12 +21,16 @@ public class MatchController {
     }
 
     @GetMapping()
-    public List<Match> getAllMatches() {
-        return matchService.retrieveAllMatches();
+    public List<MatchDto> getAllMatches() {
+        return matchService.retrieveAllMatches().stream()
+                .map(it -> new MatchDto(it.getId(), it.getTitle()))
+                .toList();
     }
 
     @GetMapping("/{matchId}")
-    public Match getMatch(@PathVariable final int matchId) {
-        return matchService.retrieveMatch(matchId);
+    public MatchDto getMatch(@PathVariable final int matchId) {
+        Match match = matchService.retrieveMatch(matchId);
+        MatchDto matchDto = new MatchDto(match.getId(), match.getTitle());
+        return matchDto;
     }
 }
