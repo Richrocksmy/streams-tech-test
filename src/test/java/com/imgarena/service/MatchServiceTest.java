@@ -1,6 +1,5 @@
 package com.imgarena.service;
 
-import com.imgarena.repository.MapMatchRepository;
 import com.imgarena.repository.MatchRepository;
 import com.imgarena.repository.entity.Match;
 import org.junit.jupiter.api.Test;
@@ -18,7 +17,7 @@ class MatchServiceTest {
     @Test
     public void shouldRetrieveMatchById() {
         // Given
-        MatchRepository matchRepository = mock(MapMatchRepository.class);
+        MatchRepository matchRepository = mock(MatchRepository.class);
         MatchService matchService = new MatchService(matchRepository);
         Match match = new Match(1, "First Match");
 
@@ -36,7 +35,7 @@ class MatchServiceTest {
     @Test
     public void shouldRetrieveAllMatches() {
         // Given
-        MatchRepository matchRepository = mock(MapMatchRepository.class);
+        MatchRepository matchRepository = mock(MatchRepository.class);
         MatchService matchService = new MatchService(matchRepository);
         List<Match> matches = List.of(new Match(1, "First Match"),
                 new Match(2, "Second Match"),

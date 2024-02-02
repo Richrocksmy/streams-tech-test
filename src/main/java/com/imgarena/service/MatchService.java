@@ -5,6 +5,8 @@ import com.imgarena.repository.MatchRepository;
 import com.imgarena.repository.entity.Match;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Service
@@ -26,6 +28,7 @@ public class MatchService {
     }
 
     public List<Match> retrieveAllMatches() {
-        return matchRepository.findAll();
+
+        return new ArrayList<>((Collection) matchRepository.findAll());
     }
 }
